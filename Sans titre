@@ -1,0 +1,58 @@
+La page « Contact » affiche un formulaire de contact structuré avec les champs « Titre du message », « Votre nom », « Votre date de naissance », « Votre e-mail », une case à cocher « Résident de la ville », un menu déroulant « Nationalité » et un champ « Message » où on peut rédiger son message. Un petit texte d’aide s’affiche sous le champ date de naissance pour dire que le format JJ/MM/AAAA est attendu. L’envoi du formulaire provoque l’envoi d’un email à destination de la mairie.
+
+<label> Your Name (required)
+    [text* your-name] </label>
+
+<label> Your Email (required)
+    [email* your-email] </label>
+
+<label> Subject
+    [text your-subject] </label>
+
+<label> Your Message
+    [textarea your-message] </label>
+
+[submit "Send"]
+
+<div class="row">
+    <div class="medium-6 columns">
+        <label> Titre du message
+            [text* your-subject] </label>
+    </div>
+    <div class="medium-6 columns">
+        <label> Votre nom*
+            [text* your-name] </label>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-6 columns">
+        <label> Votre date de naissance <span class="formatdate">format JJ/MM/AAAA</span>
+            [text* your-birth] </label>
+    </div>
+    <div class="medium-6 columns">
+        <label> Votre email
+            [email* your-email] </label>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-6 columns">
+        <label>
+            Nationalité
+                [select* nat include_blank "France" "Allemagne" "Angleterre" "Chine"]
+        </label>
+    </div>
+    <div class="medium-6 columns">
+        <label>
+            Résident ?
+                [radio resident label_first default:1 "Oui" "Non"]
+        </label>
+    </div>
+</div>
+<div class="row">
+    <div class="medium-12 columns">
+        <label> Votre message
+            [textarea your-message] </label>
+    </div>
+</div>
+
+[submit "Envoyer"]
